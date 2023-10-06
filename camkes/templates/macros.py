@@ -761,6 +761,7 @@ def parse_dtb_node_interrupts(node, max_num_interrupts, arch):
             # Seems there are no interrupts.
             return []
 
+    interrupts = interrupts[1:] #FIXME: fix RISCV DTS got 4 interrupts but expect 3
     interrupt_cells = 1 if (len(interrupts) < 3) else 3
 
     # Do a sanity check that the number of elements make sense.
